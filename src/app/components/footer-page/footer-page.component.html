@@ -1,33 +1,12 @@
-<div class="product-wrapper">
-  <img src="../../../assets/images/product-image.png" alt="product-image" />
-  <h1>{{ product.name }}</h1>
-  <br />
-  <h2>{{ product.newPrice }} դրամ</h2>
-  <br />
-  <p>առկա է {{ product.count }} հատ</p>
-  <br />
-  <span>{{ product.text }}</span> <br />
-  <strong *ngIf="product.feedbacks.length">արձագանք</strong><br />
-  <ul class="my-list-group">
-    <li *ngFor="let f of product.feedbacks" class="my-list-group-item">
-      <strong>{{ f.userName }}</strong>
-      {{ f.feedback }}
-    </li>
-  </ul>
-  <div *ngIf="product.name" class="buy-wrapper" (click)="buyProduct()">
-    ավելացնել
-  </div>
-</div>
-
-<div>
+<div *ngIf="pageTitle === 'Կապ'">
   <form [formGroup]="FormValidation">
-    <h2>Ձեր արձագանքը</h2>
+    <h2>Ձեր նամակը</h2>
     <input
       type="text"
+      [(ngModel)]="name"
       name="name"
-      formControlName="name"
       placeholder="ձեր անունը"
-      [(ngModel)]="typeFeedBack.userName"
+      formControlName="name"
     />
     <div
       *ngIf="
@@ -42,10 +21,10 @@
     </div>
     <input
       type="text"
+      [(ngModel)]="email"
       name="email"
-      formControlName="email"
       placeholder="ձեր էլեկտրոնային հասցեն"
-      [(ngModel)]="typeFeedBack.email"
+      formControlName="email"
     />
     <div
       *ngIf="
@@ -63,9 +42,9 @@
     </div>
     <textarea
       placeholder="ձեր նամակը"
+      [(ngModel)]="text"
       name="text"
       formControlName="text"
-      [(ngModel)]="typeFeedBack.feedback"
     ></textarea>
     <div
       *ngIf="
@@ -82,13 +61,11 @@
       type="submit"
       value="ուղարկել նամակը"
       [disabled]="FormValidation.invalid"
-      (click)="
-        addFeedBack(
-          typeFeedBack.userName,
-          typeFeedBack.email,
-          typeFeedBack.feedback
-        )
-      "
+      (click)="sendMessage()"
     />
   </form>
+</div>
+
+<div *ngIf="pageTitle !== 'Կապ'" style="text-align: center; color: black;">
+  <h1>Էջը դեռ պատրաստ չէ</h1>
 </div>

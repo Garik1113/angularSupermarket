@@ -2,6 +2,15 @@
   background: linear-gradient(rgb(182, 16, 94), rgb(180, 58, 64));
   width: 100%;
   padding: 10rem;
+  display: flex;
+  .message-wrapper {
+    li {
+      color: black;
+    }
+    b {
+      margin-right: 0.3rem;
+    }
+  }
 }
 
 .form-wrapper {

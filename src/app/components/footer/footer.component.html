@@ -1,5 +1,8 @@
 <div class="container-fluid wrapper">
-  <div class="title-wrapper" *ngFor="let title of footerTitles; let i = index">
+  <div
+    *ngFor="let title of footerPageTitles; let i = index"
+    (click)="goToThisFooterPage(title)"
+  >
     <p>{{ title }}</p>
   </div>
 </div>

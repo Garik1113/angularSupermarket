@@ -16,6 +16,7 @@ export interface Discount {
   text: string;
   date: number;
   feedbacks: Feedback[];
+  stars: number[];
 }
 
 @Injectable({

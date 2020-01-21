@@ -22,6 +22,7 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { SortPipe } from './pipes/sort.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 import { AboutProductComponent } from './components/about-product/about-product.component';
+import { FooterPageComponent } from './components/footer-page/footer-page.component';
 
 @NgModule({
   declarations: [
@@ -36,16 +37,12 @@ import { AboutProductComponent } from './components/about-product/about-product.
     CartComponent,
     ProductsComponent,
     SearchComponent,
-
     FooterComponent,
-
     AdminPageComponent,
-
     SortPipe,
-
     SearchPipe,
-
-    AboutProductComponent
+    AboutProductComponent,
+    FooterPageComponent
   ],
   imports: [
     BrowserModule,

@@ -110,4 +110,14 @@
       Ավելացնել ապրանքը
     </button>
   </form>
+
+  <div class="message-wrapper">
+    <ul class="list-group">
+      <h1 *ngIf="messages.length">Նամակներ օգտատերերից</h1>
+      <li class="list-group-item" *ngFor="let message of messages">
+        <b>{{ message.name }}</b>
+        <span>{{ message.text }}</span>
+      </li>
+    </ul>
+  </div>
 </div>

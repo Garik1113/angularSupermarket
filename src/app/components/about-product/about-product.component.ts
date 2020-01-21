@@ -24,7 +24,8 @@ export class AboutProductComponent implements OnInit {
     countity: 1,
     text: '',
     date: new Date().getTime(),
-    feedbacks: []
+    feedbacks: [],
+    stars: []
   };
   constructor(
     public catalogSevric: ChooseCatalogService,
@@ -50,6 +51,7 @@ export class AboutProductComponent implements OnInit {
       this.typeFeedBack.userName = '';
       this.typeFeedBack.feedback = '';
       this.typeFeedBack.email = '';
+      alert('Ձեր նամակը ուղարկված է!!!');
     }
   }
   public buyProduct(): void {

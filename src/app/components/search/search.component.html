@@ -6,11 +6,7 @@
   [(ngModel)]="searchValue"
 />
 <div class="search-value">
-  <ul
-    class="list-group "
-    style="width: 300px; color: brown"
-    *ngIf="searchValue"
-  >
+  <ul class="list-group " style="width: 300px" *ngIf="searchValue">
     <li
       *ngFor="let item of searchingProducts | search: searchValue"
       class="list-group-item search-child"

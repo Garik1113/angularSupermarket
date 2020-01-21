@@ -5,6 +5,8 @@ import {
   ChooseCatalogService
 } from 'src/app/shared/choose-catalog.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SendMessageService } from 'src/app/shared/send-message.service';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-admin-page',
@@ -12,6 +14,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./admin-page.component.scss']
 })
 export class AdminPageComponent implements OnInit {
+  public messages = [];
   public FormValidation: FormGroup;
   public categoryName = '';
   public subCategoryName = '';
@@ -25,11 +28,13 @@ export class AdminPageComponent implements OnInit {
     countity: 1,
     text: '',
     date: new Date().getTime(),
-    feedbacks: []
+    feedbacks: [],
+    stars: []
   };
   constructor(
     private chooseCatalog: ChooseCatalogService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private messageService: SendMessageService
   ) {
     this.checkForm();
   }
@@ -60,7 +65,8 @@ export class AdminPageComponent implements OnInit {
         countity: 1,
         oldPrice: 0,
         date: new Date().getTime(),
-        feedbacks: []
+        feedbacks: [],
+        stars: []
       },
       this.categoryName,
       this.subCategoryName
@@ -68,12 +74,12 @@ export class AdminPageComponent implements OnInit {
     this.addingItem.name = '';
     this.addingItem.text = '';
     this.addingItem.newPrice = 0;
-
     alert('Ապրանքն ավելացված է');
   }
 
   ngOnInit() {
     this.chooseCatalog.CatalogSubject$.subscribe(e => (this.catalogs = e));
-    this.subCategory = this.chooseCatalog.CatalogSubject$['_value'][1].catalogs;
+    this.subCategory = this.chooseCatalog.CatalogSubject$.value[1].catalogs;
+    this.messageService.messagesSubject$.subscribe(e => (this.messages = e));
   }
 }

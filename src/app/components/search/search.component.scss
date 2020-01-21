@@ -3,6 +3,11 @@
   .search-child {
     position: relative;
     z-index: 102;
+    color: #000000;
     cursor: pointer;
+    &:hover {
+      background: linear-gradient(rgb(144, 236, 221), rgb(73, 221, 164));
+      color: #ffffff;
+    }
   }
 }

@@ -32,7 +32,8 @@ export class ChooseCatalogService {
     countity: 1,
     text: '',
     date: new Date().getTime(),
-    feedbacks: []
+    feedbacks: [],
+    stars: []
   });
 
   public goToAboutThisProduct(product, proCatTitle: string): void {
@@ -61,6 +62,7 @@ export class ChooseCatalogService {
         i.title !== item.title ? (i.isActive = false) : (i.isActive = true)
       )
     );
+
     this.ShowProductSubject$.next(item);
   }
   public addCountity(item, index: number): void {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Discount } from './discount-products.service';
 import { BehaviorSubject } from 'rxjs';
+import { ChooseCatalogService } from './choose-catalog.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ export class CartService {
   public discountProducts: Discount[] = [];
   constructor() {}
   public pruductSubject$ = new BehaviorSubject<Discount[]>([]);
+  public bouthProductSubject$ = new BehaviorSubject<Discount[]>([]);
   public buyProduct(product: Discount): void {
     const dubicateProduct = this.discountProducts.filter(
       e => e.name === product.name
@@ -36,6 +38,7 @@ export class CartService {
   }
   public confirmBuy() {
     this.discountProducts.forEach(e => (e.count -= e.countity));
+    this.bouthProductSubject$.next(this.discountProducts);
     this.discountProducts.forEach(e => (e.countity = 1));
     this.discountProducts = [];
     this.pruductSubject$.next(this.discountProducts);

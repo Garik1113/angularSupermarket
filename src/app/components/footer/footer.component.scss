@@ -6,22 +6,16 @@
 .wrapper {
   display: flex;
   text-align: center;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
   background: grey;
   padding: 2rem;
-
-  .title-wrapper {
-    height: 70px;
-    width: 200px;
-    padding: 1rem;
-    margin: 0.1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  div {
+    margin-right: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 3px;
     p {
       cursor: pointer;
-      color: #000000;
+      color: #ffffff;
       &:hover {
         color: #15b5d1;
       }

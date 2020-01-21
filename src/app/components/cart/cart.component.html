@@ -53,7 +53,7 @@
     </div>
   </div>
   <div
-    *ngIf="products && isLogged"
+    *ngIf="products.length && isLogged"
     class="hastatel-wrapper"
     (click)="confirmBuy()"
   >
